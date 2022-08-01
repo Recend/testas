@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- FAVICON PRIDEJIMAS -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>responsive font</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background-color: aquamarine;
+            min-height: 170px;
+            padding: 20px;
+            margin: -20px;
+        }
+        h1{
+            font-size: 60px;
+            
+            padding: 20px 0;
+        }
+        h2{
+            font-size: 35px;
+        }
+        .text {
+            margin-top: 50px;
+            line-height: 1.5;
+            font-size: 20px;
+            padding: 0 50px;
+        }
+        h3{
+            padding: 20px;
+        }
+        ul{
+            line-height: 2;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            /*  Formules santrumpu reiksmes
+                --------------------------------------------
+                minSriftas = 30px
+                maxSriftas = 60px
+                maxPlotis = 1200
+                minPlotis = 320px
+                skirtumas = maxSriftas - minSriftas
+
+                font-size: calc(minSriftas[px] + skirtumas * (100vw / maxPlotis));
+            */
+            h1 {
+                font-size: calc(30px + 30 * (100vw / 1200));
+            }
+            h2 {
+                font-size: calc(23px + 12 * (100vw / 1200));
+            }
+            .text{
+                padding: 0 5vw;
+                
+                font-size: calc(16px + 4 * (100vw / 1200));
+            }
+        }
+        @media screen and (max-width: 760px) {
+            /*
+                minSriftas = 35px
+                maxSriftas = 60px
+                maxPlotis = 1200
+                minPlotis = 320px
+                skirtumas = maxSriftas - minSriftas
+
+                font-size: calc( minSriftas[px] + (skirtumas + skirtumas * 0.7) * ((100vw - minPlotis[px]) / maxPlotis));
+            */
+            h1 {
+                font-size: calc(30px + (30 + 30 * 0.7) * ((100vw - 360px) / 1200));
+            }
+            h2 {
+                font-size: calc(23px + (12 + 12 * 0.7) * ((100vw - 360px) / 1200));
+            }
+            .text{
+                padding: 0;
+                font-size: calc(16px + (4 + 4 * 0.7) * ((100vw - 320px) / 1200));
+            }
+        }
+
+        /* 
+        -----------------------
+        Pseudo elementu stilius
+        ------------------------ 
+        */
+        .pseudo {
+           border-top: 3px solid blue;
+            min-height: 170px;
+            padding: 20px;
+            margin: 20px -20px 0 -20px;
+        
+        }
+        .pseudo-title::first-letter{
+             font-size: 100px;
+             color:red;
+        
+        }
+        .text2::first-line{
+            color:red;
+        }
+
+        .text2{
+            position: relative;
+            margin-top: 50px;
+            line-height: 1.5;
+            font-size: 20px;
+            padding: 0 50px;
+        }
+
+        .text2::before {
+            content: '';
+            width: 6px;
+            height: 80%;
+            background: red;
+            position: absolute;
+            top: 10%;
+            left: 10px;
+
+        }
+
+        .list li {
+            list-style-type: none;
+            position: relative;
+        }
+        .list li::before{
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50px;
+            background: red;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Labai didelė antraštė (responsive font)</h1>
+            <h2> (Responsive font example) vidutinė puiki antraštė Lorem ipsum dolor adipisicing elit. Praesentium,
+                quis in nesciunt quo sit amet consectetur</h2>
+        </div>
+
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium,
+            quis in nesciunt quo necessitatibus accusantium aperiam neque expedita.
+            Beatae ducimus praesentium magnam odio facere hic et ipsum tempora
+            voluptas minima?Lorem ipsum dolor sit amet consectetur, adipisicing
+            elit. Praesentium, quis in nesciunt quo necessitatibus accusantium
+            aperiam neque expedita. Beatae ducimus praesentium magnam odio facere
+            hic et ipsum tempora voluptas minima? Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Praesentium, quis in nesciunt quo
+            necessitatibus accusantium aperiam neque expedita. Beatae ducimus
+            praesentium magnam odio facere hic et ipsum tempora voluptas minima?
+        </p>
+        <h3>Projekto šrifto pradiniai duomenis</h3>
+        <ul class="list">
+            <li>Konteineris => 1200px</li>
+            <li>h1 => font-size: 60px;</li>
+            <li>h2 => font-size: 35px;</li>
+            <li>p => font-size: 20px;</li>
+        </ul>
+
+        <!-- PSEUDO ELEMENTAI -->
+
+        <div class="pseudo">
+            <h1 class="pseudo-title">Pseudo elementai</h1>
+            <p class="text2">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium,
+                quis in nesciunt quo necessitatibus accusantium aperiam neque expedita.
+                Beatae ducimus praesentium magnam odio facere hic et ipsum tempora
+                voluptas minima?Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Praesentium, quis in nesciunt quo necessitatibus accusantium
+                aperiam neque expedita. Beatae ducimus praesentium magnam odio facere
+                hic et ipsum tempora voluptas minima? Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Praesentium, quis in nesciunt quo
+                necessitatibus accusantium aperiam neque expedita. Beatae ducimus
+                praesentium magnam odio facere hic et ipsum tempora voluptas minima?
+            </p>
+        </div>
+    </div>
+
+
+    <!-- BEM metodologijos pavyzdys -->
+    <!-- Block Element Modificator -->
+    <div class="portfolio">
+        <h1 class="portfolio-tilte"> title</h1>
+        <div class="portfolio-content">
+            <p class="portfolio-content_text">Paragrafas</p>
+            <a>nuoroda</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
